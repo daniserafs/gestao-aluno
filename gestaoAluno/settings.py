@@ -31,10 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'django.contrib.admin',
-    'gestaoAluno.apps.'
-    'materialdash',
-    'materialdash.admin',
+    'django.contrib.admin',
+    #'materialdash',
+    #'materialdash.admin',
+    'aluno.apps.AlunoConfig',
+    'gestaoAluno.apps.GestaoAlunoConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
