@@ -1,4 +1,5 @@
 from django.db import models
+import re
 
 class Aluno(models.Model):
     opcao_campus = ['Araguaína', 'Arraias', 'Gurupi', 'Miracema', 'Palmas', 'Porto Nacional', 'Tocantinópolis']
@@ -10,12 +11,13 @@ class Aluno(models.Model):
     sobrenome = models.CharField(max_length=200)
     cpf = models.CharField(max_length=11)
     matricula = models.IntegerField()
-    curso = models.CharField(max_length=100)
+    # curso = models.CharField(max_length=100)
     # campus = models.CharField(max_length=1, choices=opcao_campus)
     data_de_nascimento = models.DateField()
     #foto = models.ImageField()
     #situacao = models.CharField(max_length=1, choices=opcao_situacao)
     #forma_de_ingresso = models.CharField(max_length=1, choices=opcao_ingresso)
+    ano_ingresso = models.CharField(max_length=4)
 
     @property
     def nome_completo(self):
@@ -34,9 +36,13 @@ class Aluno(models.Model):
     def validar_cpf(self, cpf):
         cpf = self.cpf
         numeros = [int(digito) for digito in cpf if digito.isdigit()]
+        formatacao = False
         validacao1 = False
         validacao2 = False
         quant_digitos = False
+
+        if re.match(r'\d{3}\.\d{3}\.\d{3}-\d{2}', cpf):
+            formatacao = True
 
         if len(cpf) == 11:
             quant_digitos = True
@@ -51,7 +57,7 @@ class Aluno(models.Model):
             if cpf[10] == digito_esperado1:
                 validacao2 = True
             
-            if quant_digitos == True and validacao1 == True and validacao2 == True:
+            if quant_digitos == True and formatacao == True and validacao1 == True and validacao2 == True:
                 print(f'O CPF {cpf} é válido')
             else: print (f'O CPF {cpf} é inválido')
         else:
@@ -70,3 +76,5 @@ class Aluno(models.Model):
                 fatia_quatro
                 )    
             )
+    
+#class Curso(models.Model):
