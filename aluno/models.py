@@ -6,7 +6,8 @@ class Aluno(models.Model):
     opcao_ingresso = ['Vestibular', 'SISU', 'PSEnem']
 
     aluno_id = models.AutoField(primary_key=True)
-    nome_completo = models.CharField(max_length=200)
+    nome = models.CharField(max_length=200)
+    sobrenome = models.CharField(max_length=200)
     cpf = models.CharField(max_length=11)
     matricula = models.IntegerField()
     curso = models.CharField(max_length=100)
@@ -15,6 +16,10 @@ class Aluno(models.Model):
     #foto = models.ImageField()
     #situacao = models.CharField(max_length=1, choices=opcao_situacao)
     #forma_de_ingresso = models.CharField(max_length=1, choices=opcao_ingresso)
+
+    @property
+    def nome_completo(self):
+        return f'{self.nome} {self.sobrenome}'
 
     def __init__(self, cpf):
         cpf = str(cpf)
