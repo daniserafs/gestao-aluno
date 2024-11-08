@@ -6,5 +6,5 @@ class Curso(models.Model):
     campus = models.ForeignKey(Campi, on_delete=models.CASCADE, help_text='Escolha o campus em que o curso é ofertado')
     
     def __str__(self):
-        return self.nome, self.campus
+        return self.nome
     

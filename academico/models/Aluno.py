@@ -22,4 +22,4 @@ class Aluno(models.Model):
     
     def __str__(self):
 
-        return self.nome, self.cpf, self.matricula, self.dataNascimento, self.foto, self.situacao, self.formaIngresso, self.ano_ingresso
+        return self.nome, self.cpf, self.matricula, self.dataNascimento, self.curso, self.campus, self.formaIngresso, self.anoIngresso

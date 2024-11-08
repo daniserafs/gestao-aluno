@@ -20,6 +20,8 @@ class Aluno(models.Model):
     #forma_de_ingresso = models.CharField(max_length=1, choices=opcao_ingresso)
     ano_ingresso = models.CharField(max_length=4)
 
+    def __init__(self):
+        return self.nome
     
     """def __init__(self, cpf):
         cpf = str(cpf)

@@ -31,9 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    #'materialdash',
-    #'materialdash.admin',
+    #'django.contrib.admin',
+    'materialdash',
+    'materialdash.admin',
     'academico.apps.AcademicoConfig',
     'aluno.apps.AlunoConfig',
     'gestaoAluno.apps.GestaoAlunoConfig',

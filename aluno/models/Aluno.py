@@ -1,5 +1,7 @@
 from django.db import models
-import Ingresso, Campi, Situacao
+from .Ingresso import Ingresso
+from .Campi import Campi
+from .Situacao import Situacao
 
 OPCAO_DE_SITUACAO = ['Vinculado', 'Formado', 'Jubilado', 'Evadido']
 
