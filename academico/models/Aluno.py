@@ -1,7 +1,10 @@
 from django.db import models
-from . import Ingresso, Campi, Situacao, Curso
+from .Ingresso import Ingresso
+from .Campi import Campi
+from .Situacao import Situacao
+from .Curso import Curso
 
-OPCAO_DE_SITUACAO = ['Vinculado', 'Formado', 'Jubilado', 'Evadido']
+#OPCAO_DE_SITUACAO = ['Vinculado', 'Formado', 'Jubilado', 'Evadido']
 
 
 class Aluno(models.Model):
@@ -13,8 +16,9 @@ class Aluno(models.Model):
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     #foto = models.ImageField()
     situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE)
+    campus = models.ForeignKey(Campi, on_delete=models.CASCADE)
     formaIngresso = models.ForeignKey(Ingresso, on_delete=models.CASCADE)
-    ano_ingresso = models.CharField('Insira o ano de ingresso do aluno',max_length=4)
+    anoIngresso = models.CharField('Insira o ano de ingresso do aluno',max_length=4)
     
     def __str__(self):
 
