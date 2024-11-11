@@ -11,7 +11,7 @@ class Aluno(models.Model):
     
     nome = models.CharField('Nome Completo do Aluno', max_length=200, help_text='Insira o nome completo do aluno')
     cpf = models.CharField('CPF do aluno', max_length=11, help_text='Insira apenas os números sem caracteres especiais')
-    matricula = models.IntegerField()
+    matricula = models.IntegerField(max_length=9)
     dataNascimento = models.DateField() 
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     #foto = models.ImageField()
@@ -22,4 +22,4 @@ class Aluno(models.Model):
     
     def __str__(self):
 
-        return self.nome, self.cpf, self.matricula, self.dataNascimento, self.curso, self.campus, self.formaIngresso, self.anoIngresso
+        return self.nome
