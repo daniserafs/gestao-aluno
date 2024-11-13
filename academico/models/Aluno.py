@@ -1,6 +1,5 @@
 from django.db import models
 from .Ingresso import Ingresso
-from .Campi import Campi
 from .Situacao import Situacao
 from .Curso import Curso
 import datetime
@@ -12,7 +11,6 @@ class Aluno(models.Model):
     cpf = models.CharField('CPF', max_length=11, unique=True,help_text='Insira apenas os números sem caracteres especiais')
     matricula = models.CharField('Matricula',max_length=9, unique=True, editable=False)
     curso = models.ForeignKey(Curso, verbose_name='Curso',on_delete=models.PROTECT)
-    #campus = models.ForeignKey(Campi, verbose_name='Campus',on_delete=models.PROTECT)
     dataNascimento = models.DateField('Data de Nascimento') 
     foto = models.ImageField('Insira uma foto do aluno')
     situacao = models.ForeignKey(Situacao, verbose_name='Situação',on_delete=models.PROTECT)
@@ -28,7 +26,6 @@ class Aluno(models.Model):
     
     def save(self, *args, **kwargs):
         self.gerarMatricula()
-        #self.adicionarCampus()
         super().save(*args, **kwargs)
 
     
@@ -49,7 +46,3 @@ class Aluno(models.Model):
 
             matricula = f'{anoAtual}{semestre}{novoNumero:04d}'
             self.matricula = matricula
-
-    """def adicionarCampus(self):
-        self.campus = Curso.campus
-        pass"""
