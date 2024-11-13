@@ -31,12 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #'django.contrib.admin',
-    'materialdash',
-    'materialdash.admin',
+    'django.contrib.admin',
+    #'materialdash',
+    #'materialdash.admin',
     'academico.apps.AcademicoConfig',
-    'aluno.apps.AlunoConfig',
-    'gestaoAluno.apps.GestaoAlunoConfig',
+    #'gestaoAluno.apps.GestaoAlunoConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -108,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 

@@ -12,7 +12,7 @@ class Aluno(models.Model):
     cpf = models.CharField('CPF', max_length=11, unique=True,help_text='Insira apenas os números sem caracteres especiais')
     matricula = models.CharField('Matricula',max_length=9, unique=True, editable=False)
     curso = models.ForeignKey(Curso, verbose_name='Curso',on_delete=models.PROTECT)
-    campus = models.ForeignKey(Campi, verbose_name='Campus',on_delete=models.PROTECT)
+    campus = models.ForeignKey(Campi, verbose_name='Campus',on_delete=models.PROTECT, editable=False)
     dataNascimento = models.DateField('Data de Nascimento') 
     foto = models.ImageField('Insira uma foto do aluno')
     situacao = models.ForeignKey(Situacao, verbose_name='Situação',on_delete=models.PROTECT)
@@ -27,20 +27,22 @@ class Aluno(models.Model):
         verbose_name_plural = 'Alunos'
     
     def save(self, *args, **kwargs):
-        self.matriculaGerada()
+        self.gerarMatricula()
         super().save(*args, **kwargs)
 
     
-    def matriculaGerada(self):
+    def gerarMatricula(self):
         if not self.matricula:
             anoAtual = datetime.datetime.now().year
             semestre = 1 if datetime.datetime.now().month <= 6 else 2
 
-            if Aluno.objects.exists():
-                ultimaMatricula = Aluno.objects.last().matricula
-                ultimoNumero = int(ultimaMatricula[-4:])
-            else:
-                ultimoNumero = 0
+            #existeAluno = Aluno.objects.filter(matricula = self.matricula).exists()
+
+            #if not existeAluno:
+            ultimaMatricula = Aluno.objects.last().matricula
+            ultimoNumero = int(ultimaMatricula[-4:])
+            #else:
+                #ultimoNumero = 0
             
             novoNumero = ultimoNumero + 1 
 
