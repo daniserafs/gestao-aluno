@@ -39,7 +39,7 @@ class AlunoForm(forms.ModelForm):
 
 class CadastroView(View):
     formClass = AlunoForm
-    nomeTemplate = 'CadastrarAluno.html'
+    nomeTemplate = 'cadastrarAluno.html'
     
     def get(self, request):
         form = AlunoForm()
