@@ -42,7 +42,7 @@ class CadastrarCampusView(View):
             print(f'Request: {request.POST}')
             messages.success(request,'Campus cadastrado com sucesso.')
             form.save()
-            return HttpResponseRedirect('/cadastro_campus/')
+            return HttpResponseRedirect('/cadastro-campus/')
         else:
             messages.error(request, 'Erro ao cadastrar campus.')
             print(forms.errors)

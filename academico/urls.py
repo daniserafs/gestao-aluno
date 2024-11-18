@@ -1,17 +1,15 @@
 from django.urls import path
-from academico.views import CadastroView
-from academico.views import CadastrarCampusView
-from . import views
 from django.views.generic import TemplateView
+from . import views
 
 urlpatterns = [
     #path('', views.index, name='index'),
-    path('cadastro/', views.CadastroView.as_view(), name='cadastro'),
-    #path('cadastro_campus/', CadastrarCampusView.as_view(), name='cadastro_campus'),
-    #path('cadastro_curso/', views.CadastroCursoView.as_view(), name='cadastro_curso'),
-    #path('cadastro_situacao/', views.CadastrarSituacaoView.as_view(), name='cadastro_situacao'),
-    #path('cadastro_forma_ingresso/', views.CadastrarFormaIngressoView.as_view(), name='cadastro_forma_ingresso'),
-    #path('listar_alunos/', views.AlunoListView.as_view(), name='listar_alunos'),
+    path('cadastro/', TemplateView.as_view(template_name='cadastrarAluno.html')),
+    path('cadastro-campus', TemplateView.as_view(template_name='cadastrarCampus.html')),
+    path('cadastro-curso/', TemplateView.as_view(template_name='cadastrarCurso.html')),
+    path('cadastro-situacao/', TemplateView.as_view(template_name='cadastrarSituacao.html')),
+    path('cadastro-forma-ingresso/', TemplateView.as_view(template_name='cadastrarFormaIngresso.html')),
+    path('listar-alunos/', TemplateView.as_view(template_name='listarAlunos.html')),
 
 
 ]
