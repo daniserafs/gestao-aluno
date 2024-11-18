@@ -16,12 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+
 
 
 
 urlpatterns = [
-    path('cadastro/', include('academico.urls')),
+    path('', include('academico.urls')),
     path('admin/', admin.site.urls),
     #path('', views.index, name='index')
 ]
