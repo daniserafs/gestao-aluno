@@ -1,0 +1,104 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Alunos Matriculados</h6>
+
+            </div>
+            <div class="card-body">
+                <form method="get" action="{% url 'listar_alunos' %}">
+                    <div class="form-row">
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="curso">Curso</label>
+                                <select class="form-control" name="curso" id="curso">
+                                    <option value="">Selecione um curso</option>
+                                    {% for curso in cursos %}
+                                    <option value="{{ curso.id }}" {% if curso.id==curso_filter %}selected{% endif %}>{{
+                                        curso.nome }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <label for="campus">Campus</label>
+                            <select class="form-control" name="campus" id="campus">
+                                <option value="">Selecione um campus</option>
+                                {% for campus in campi %}
+                                <option value="{{ campus.id }}" {% if campus.id==campus_filter %}selected{% endif %}>{{
+                                    campus.nome }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </div>
+            </div>
+            </form>
+
+            <div class="table-responsive" style="margin-top: 20px;">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nome Completo</th>
+                            <th>Curso</th>
+                            <th>Campus</th>
+                            <th>Data de Nascimento</th>
+                            <th>Situação</th>
+                            <th>Forma de Ingresso</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for aluno in alunos %}
+                        <tr>
+                            <td>{{ aluno.nomeCompleto }}</td>
+                            <td>{{ aluno.curso }}</td>
+                            <td>{{ aluno.campus }}</td>
+                            <td>{{ aluno.dataNascimento }}</td>
+                            <td>{{ aluno.situacao }}</td>
+                            <td>{{ aluno.formaIngresso }}</td>
+                            <td>
+                                <!-- Botão de editar, abre o modal -->
+                                <button class="btn btn-info btn-sm" data-toggle="modal"
+                                    data-target="#editModal{{ aluno.id }}"
+                                    onclick="preencherModal({{ aluno.id }})">Editar</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+    document.getElementById('campus').addEventListener('change', function () {
+        var campusId = this.value;
+        var cursoSelecionado = document.getElementById('curso');
+
+        cursoSelecionado.innerHTML = '<option value="" Selecione o curso </option>';
+        if (campusId) {
+            fetch(`/curso_campus/${campusId}`).then(response => response.json()).then(data => {
+                data.curso.forEach(curso => {
+                    var option = document.createElement('option');
+                    option.value = curso.id;
+                    option.innerHTML = curso.nome;
+                    cursoSelecionado.appendChild(option);
+                });
+            }).catch(error => console.log(error));
+        };
+
+    });
+
+</script>
+
+{% endblock %}
