@@ -20,7 +20,7 @@
 
     <!-- Custom styles for this template-->
     <!-- <link href="static/css/sb-admin-2.min.css" rel="stylesheet"> -->
-    <link href="{ % static 'css/sb-admin-2.css' % } " rel="stylesheet">
+    <link href="{% static 'css/sb-admin-2.css' %}" rel="stylesheet">
 
 </head>
 
@@ -33,7 +33,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -45,7 +45,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -72,7 +72,8 @@
                         <a class="collapse-item" href="/listar-alunos">Lista de alunos</a>
                         <a class="collapse-item" href="ListarAlunosPorCampus.html">Lista de alunos por campus</a>
                         <a class="collapse-item" href="ListarAlunosPorCurso.html">Lista de alunos por curso</a>
-                        <a class="collapse-item" href="DesvincularAluno.html">Desvincular aluno</a>
+                        <!--  <a class="collapse-item" href="DesvincularAluno.html">Desvincular aluno</a>
+                    -->
                     </div>
                 </div>
             </li>
@@ -87,7 +88,8 @@
                         <h6 class="collapse-header">Ações:</h6>
                         <a class="collapse-item" href="/cadastro-campus">Adicionar Campus</a>
                         <a class="collapse-item" href="ListarCampus.html">Lista de Campi</a>
-                        <a class="collapse-item" href="DeletarCampus.html">Deletar Campus</a>
+                        <!-- <a class="collapse-item" href="DeletarCampus.html">Deletar Campus</a>
+                    -->
                     </div>
                 </div>
             </li>
@@ -102,7 +104,8 @@
                         <h6 class="collapse-header">Ações:</h6>
                         <a class="collapse-item" href="/cadastro-curso">Adicionar Curso</a>
                         <a class="collapse-item" href="ListarCampus.html">Lista de Cursos</a>
-                        <a class="collapse-item" href="DeletarCampus.html">Deletar Curso</a>
+                        <!-- <a class="collapse-item" href="DeletarCampus.html">Deletar Curso</a>
+                    -->
                     </div>
                 </div>
             </li>
@@ -118,7 +121,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ações:</h6>
-                        <a class="collapse-item" href="AdicionarFormaDeIngresso.html">Adicionar Forma de Ingresso</a>
+                        <a class="collapse-item" href="/cadastro-forma-ingresso">Adicionar Forma de Ingresso</a>
                         <a class="collapse-item" href="ListarFormaDeIngresso.html">Lista de Formas de Ingresso</a>
                         <a class="collapse-item" href="DeletarFormaDeIngresso.html">Deletar Forma de Ingresso</a>
                     </div>
@@ -134,7 +137,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ações:</h6>
-                        <a class="collapse-item" href="/cadastro-situacao">Adicionar Forma de Ingresso</a>
+                        <a class="collapse-item" href="/cadastro-situacao">Adicionar Situção</a>
                         <a class="collapse-item" href="ListarFormaDeIngresso.html">Lista de Formas de Ingresso</a>
                         <a class="collapse-item" href="DeletarFormaDeIngresso.html">Deletar Forma de Ingresso</a>
                     </div>

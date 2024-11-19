@@ -4,7 +4,7 @@ from academico.views import CadastroView
 from . import views
 
 urlpatterns = [
-    #path('', views.index, name='index'),
+    path('', TemplateView.as_view(template_name='index.html')),
     path('cadastro/', TemplateView.as_view(template_name='cadastrarAluno.html')),
     #path('cadastro/', CadastroView.as_view(), name = 'cadastro'),
     path('cadastro-campus', TemplateView.as_view(template_name='cadastrarCampus.html')),
