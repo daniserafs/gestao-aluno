@@ -1,18 +1,21 @@
 {% extends 'base/base.html' %}
 {% load static %}
+{% block title %}
+<div class="d-sm-flex align-items-center justify-content-center mb-4">
+    <h1 class="h2 text-center text-gray-800 mt-5">
+        Cadastro de Aluno
+    </h1>
+</div>
+{% endblock title %}
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-4 col-lg-5">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Cadastro de Aluno</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <h3>Daniela</h3>
-    </div>
+<div class="form-control">
+    <form action="" method="POST" >
+        {% csrf_token %}
+        {{form  }}
+        <label>Nome</label>
+        
+        <input type="submit" class="btn btn-primary" value="Cadastrar">
+    </form>
+</div>
+
 {% endblock content %}
