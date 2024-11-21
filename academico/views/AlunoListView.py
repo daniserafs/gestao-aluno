@@ -3,7 +3,7 @@ from academico.models import Aluno, Campi, Curso, Ingresso, Situacao
 
 class AlunoListView(ListView):
     model = Aluno
-    template_name = 'academico/aluno_list.html'
+    template_name = 'ListarAlunos.html'
     context_object_name = 'alunos'
 
     def get_queryset(self):

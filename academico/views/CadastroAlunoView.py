@@ -1,16 +1,16 @@
 from django.views import View
 from django.contrib import messages
-from django.forms import forms
-from forms import SituacaoForm
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.forms import forms
+from academico.forms import CadastroAlunoForm
 
-class CadastrarSituacaoView(View):
-    formClass = SituacaoForm
-    nomeTemplate = 'CadastrarSituacao.html'
+class CadastroAlunoView(View):
+    formClass = CadastroAlunoForm
+    nomeTemplate = 'CadastrarAluno.html'
     
     def get(self, request):
-        form = SituacaoForm()
+        form = CadastroAlunoForm()
         context = {
             'form':form
         }
@@ -21,13 +21,13 @@ class CadastrarSituacaoView(View):
         form = self.formClass(request.POST, request.FILES)
         if form.is_valid():
             print(f'Request: {request.POST}')
-            messages.success(request,'Situação cadastrada com sucesso.')
+            messages.success(request,'Aluno cadastrado com sucesso.')
             form.save()
-            return HttpResponseRedirect('/cadastro_situacao/')
+            return HttpResponseRedirect('/cadastro/')
         else:
-            messages.error(request, 'Erro ao cadastrar situação.')
+            messages.error(request, 'Erro ao cadastrar aluno.')
             print(forms.errors)
         context = {
             'form':form
         }
-        return render(request, self.nomeTemplate, context=context)      
+        return render(request, self.nomeTemplate, context=context)
