@@ -1,2 +1,2 @@
-from .CadastroView import CadastroView
-#from CadastroView import CadastroView
+from academico.views import CadastroAlunoView
+from academico.views.AlunoCreateView import AlunoCreateView

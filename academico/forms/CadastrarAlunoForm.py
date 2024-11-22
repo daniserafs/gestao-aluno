@@ -1,7 +1,7 @@
 from django import forms
 from academico.models import Aluno
 
-class CadastroAlunoForm(forms.ModelForm):
+class CadastrarAlunoForm(forms.ModelForm):
     cpf = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder':'Somente números',
         'maxLength':11
@@ -30,3 +30,4 @@ class CadastroAlunoForm(forms.ModelForm):
                 'class':'form-control'
             })
         }
+
