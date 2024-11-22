@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 
 class AlunoCreateView(CreateView):
     model = Aluno
-    template_name = 'templates/cadastrarAluno.html'
+    template_name = 'CadastrarAluno.html'
     form_class = CadastrarAlunoForm
     success_url = reverse_lazy('cadastrar-aluno')
 
