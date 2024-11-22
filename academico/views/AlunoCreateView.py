@@ -7,5 +7,5 @@ class AlunoCreateView(CreateView):
     model = Aluno
     template_name = 'CadastrarAluno.html'
     form_class = CadastrarAlunoForm
-    success_url = reverse_lazy('cadastrar-aluno')
+    success_url = reverse_lazy('')
 

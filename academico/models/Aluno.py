@@ -13,7 +13,7 @@ class Aluno(models.Model):
     curso = models.ForeignKey(Curso, verbose_name='Curso',on_delete=models.PROTECT)
     dataNascimento = models.DateField('Data de Nascimento') 
     foto = models.ImageField('Insira uma foto do aluno')
-    situacao = models.ForeignKey(Situacao, verbose_name='Situação',on_delete=models.PROTECT)
+    situacao = models.ForeignKey(Situacao, verbose_name='Situação',on_delete=models.PROTECT, default=2, null=True, blank=True)
     formaIngresso = models.ForeignKey(Ingresso, verbose_name='Forma de ingresso',on_delete=models.PROTECT)
     
     def __str__(self):

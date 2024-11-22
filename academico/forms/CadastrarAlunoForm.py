@@ -8,11 +8,10 @@ class CadastrarAlunoForm(forms.ModelForm):
     }),
     label = 'CPF do Aluno',
     error_messages ={'unique':'Este CPF já foi cadastrado!'}),
-    situacao = forms.CharField(initial='1', widget=forms.HiddenInput())
 
     class Meta:
         model = Aluno
-        fields = ['nome','cpf', 'curso', 'dataNascimento', 'foto', 'situacao', 'formaIngresso']
+        fields = ['nome','cpf', 'curso', 'dataNascimento', 'foto', 'situacao','formaIngresso', ]
         widgets = {
             'nome': forms.TextInput(attrs={
                 'placeholder':'Nome completo'
@@ -20,14 +19,16 @@ class CadastrarAlunoForm(forms.ModelForm):
             'dataNascimento': forms.DateInput(attrs={
                 'type':'date'
             }),
-            'situacao':forms.Select(attrs={
-                'disabled':'disabled'
-            }),
             'curso':forms.Select(attrs={
                 'class':'form-control'
             }),
+            'situacao': forms.Select(attrs={
+                'class': 'form-control'
+            }),
             'formaIngresso':forms.Select(attrs={
                 'class':'form-control'
-            })
+            }),
+    
         }
+    
 

@@ -13,7 +13,7 @@ urlpatterns = [
     path('cadastro-forma-ingresso/', TemplateView.as_view(template_name='CadastrarFormaIngresso.html')),
     path('listar-alunos/', TemplateView.as_view(template_name='ListarAlunos.html')),
     #path('listar-alunos/<id:int>', TemplateView.as_view(template_name='ListarAlunos.html')),
-    path('cadastrar-aluno/', AlunoCreateView.as_view(), name='add_aluno' ),
+    path('cadastrar-aluno/', AlunoCreateView.as_view(), name='cadastrar-aluno' ),
     
 
 

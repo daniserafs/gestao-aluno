@@ -9,7 +9,7 @@
 {% endblock title %}
 {% block content %}
 <div class="form-control">
-    <form class="form-inline" method="POST" >
+    <form class="form-inline" method="POST" enctype="multipart/form-data">
         
         {{  form.as_p  }}
         {% csrf_token %}
