@@ -6,7 +6,7 @@ class AlunoListView(ListView):
     template_name = 'ListarAlunos.html'
     context_object_name = 'alunos'
 
-    def get_queryset(self):
+    """def get_queryset(self):
         queryset = self.queryset 
         
         if self.kwargs['curso_id']:
@@ -21,8 +21,11 @@ class AlunoListView(ListView):
          
          
         return queryset
+
+        """
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['curso'] = Curso.objects.all()
-        context['campus'] = Campi.objects.all()
+        #context['curso'] = Curso.objects.all()
+        #context['campus'] = Campi.objects.all()
+        context['aluno'] = Aluno.objects.all()
         return context

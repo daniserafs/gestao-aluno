@@ -15,6 +15,7 @@ urlpatterns = [
     #path('listar-alunos/<id:int>', TemplateView.as_view(template_name='ListarAlunos.html')),
     path('cadastrar-aluno/', AlunoCreateView.as_view(), name='cadastrar-aluno' ),
     
+    
 
 
 ]
